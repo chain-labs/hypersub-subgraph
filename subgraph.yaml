@@ -1,0 +1,44 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SubscriptionTokenV1Factory
+    network: base
+    source:
+      address: "0x3BeF7e58a3F357eC98b639df5c24DaC68Ee3A180"
+      abi: SubscriptionTokenV1Factory
+      startBlock: 6338113
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DeployFeeChange
+        - DeployFeeTransfer
+        - Deployment
+        - FeeCreated
+        - FeeDestroyed
+        - OwnershipTransferStarted
+        - OwnershipTransferred
+      abis:
+        - name: SubscriptionTokenV1Factory
+          file: ./abis/SubscriptionTokenV1Factory.json
+      eventHandlers:
+        - event: DeployFeeChange(uint256)
+          handler: handleDeployFeeChange
+        - event: DeployFeeTransfer(indexed address,uint256)
+          handler: handleDeployFeeTransfer
+        - event: Deployment(indexed address,uint256)
+          handler: handleDeployment
+        - event: FeeCreated(indexed uint256,address,uint16)
+          handler: handleFeeCreated
+        - event: FeeDestroyed(indexed uint256)
+          handler: handleFeeDestroyed
+        - event: OwnershipTransferStarted(indexed address,indexed address)
+          handler: handleOwnershipTransferStarted
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/subscription-token-v-1-factory.ts

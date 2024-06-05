@@ -1,0 +1,8 @@
+{
+  "base": {
+    "SubscriptionTokenV1Factory": {
+      "address": "0x3BeF7e58a3F357eC98b639df5c24DaC68Ee3A180",
+      "startBlock": 6338113
+    }
+  }
+}
