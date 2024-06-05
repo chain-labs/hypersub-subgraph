@@ -1,13 +1,13 @@
 {
-  "name": "hypersub-subgraphh",
-  "license": "UNLICENSED",
+  "name": "hypersub-subgraph",
+  "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ hypersub-subgraphh",
-    "create-local": "graph create --node http://localhost:8020/ hypersub-subgraphh",
-    "remove-local": "graph remove --node http://localhost:8020/ hypersub-subgraphh",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 hypersub-subgraphh",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ hypersub-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ hypersub-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ hypersub-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 hypersub-subgraph",
     "test": "graph test"
   },
   "dependencies": {
