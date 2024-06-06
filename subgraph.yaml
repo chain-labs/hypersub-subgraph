@@ -16,16 +16,15 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - DeployFeeChange
-        - DeployFeeTransfer
-        - Deployment
-        - FeeCreated
-        - FeeDestroyed
-        - OwnershipTransferStarted
-        - OwnershipTransferred
+        - SubscriptionTokenV1Factory
+        - FeeConfig
+        - SubscriptionTokenV1
+        - HypersubSubscription
       abis:
         - name: SubscriptionTokenV1Factory
           file: ./abis/SubscriptionTokenV1Factory.json
+        - name: SubscriptionTokenV1
+          file: ./abis/SubscriptionTokenV1.json
       eventHandlers:
         - event: DeployFeeChange(uint256)
           handler: handleDeployFeeChange
@@ -43,7 +42,8 @@ dataSources:
           handler: handleOwnershipTransferred
       file: ./src/subscription-token-v-1-factory.ts
 templates:
-  - name: SubscriptionTokenV1
+  - kind: ethereum
+    name: SubscriptionTokenV1
     network: base
     source:
       abi: SubscriptionTokenV1
@@ -52,44 +52,22 @@ templates:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
-        - FeeAllocated
-        - FeeCollectorChange
-        - FeeTransfer
-        - Grant
-        - Initialized
-        - SubscriptionTokenV1OwnershipTransferStarted
-        - SubscriptionTokenV1OwnershipTransferred
-        - Paused
-        - Purchase
-        - ReferralCreated
-        - ReferralDestroyed
-        - ReferralPayout
-        - Refund
-        - RefundTopUp
-        - RewardPointsSlashed
-        - RewardWithdraw
-        - RewardsAllocated
-        - SupplyCapChange
-        - Transfer
-        - TransferRecipientChange
-        - Unpaused
-        - Withdraw
+        - SubscriptionTokenV1
+        - HypersubSubscription
       abis:
         - name: SubscriptionTokenV1
           file: ./abis/SubscriptionTokenV1.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
-        - event: FeeAllocated(uint256)
-          handler: handleFeeAllocated
-        - event: FeeCollectorChange(indexed address,indexed address)
-          handler: handleFeeCollectorChange
-        - event: FeeTransfer(indexed address,indexed address,uint256)
-          handler: handleFeeTransfer
+        # - event: Approval(indexed address,indexed address,indexed uint256)
+        #   handler: handleApproval
+        # - event: ApprovalForAll(indexed address,indexed address,bool)
+        #   handler: handleApprovalForAll
+        # - event: FeeAllocated(uint256)
+        #   handler: handleFeeAllocated
+        # - event: FeeCollectorChange(indexed address,indexed address)
+        #   handler: handleFeeCollectorChange
+        # - event: FeeTransfer(indexed address,indexed address,uint256)
+        #   handler: handleFeeTransfer
         - event: Grant(indexed address,indexed uint256,uint256,uint256)
           handler: handleGrant
         - event: Initialized(uint8)
@@ -102,28 +80,28 @@ templates:
           handler: handlePaused
         - event: Purchase(indexed address,indexed uint256,uint256,uint256,uint256,uint256)
           handler: handlePurchase
-        - event: ReferralCreated(uint256,uint16)
-          handler: handleReferralCreated
-        - event: ReferralDestroyed(uint256)
-          handler: handleReferralDestroyed
-        - event: ReferralPayout(indexed uint256,indexed address,indexed uint256,uint256)
-          handler: handleReferralPayout
-        - event: Refund(indexed address,indexed uint256,uint256,uint256)
-          handler: handleRefund
-        - event: RefundTopUp(uint256)
-          handler: handleRefundTopUp
-        - event: RewardPointsSlashed(indexed address,indexed address,uint256)
-          handler: handleRewardPointsSlashed
-        - event: RewardWithdraw(indexed address,uint256)
-          handler: handleRewardWithdraw
-        - event: RewardsAllocated(uint256)
-          handler: handleRewardsAllocated
-        - event: SupplyCapChange(uint256)
-          handler: handleSupplyCapChange
-        - event: Transfer(indexed address,indexed address,indexed uint256)
-          handler: handleTransfer
-        - event: TransferRecipientChange(indexed address)
-          handler: handleTransferRecipientChange
+        # - event: ReferralCreated(uint256,uint16)
+        #   handler: handleReferralCreated
+        # - event: ReferralDestroyed(uint256)
+        #   handler: handleReferralDestroyed
+        # - event: ReferralPayout(indexed uint256,indexed address,indexed uint256,uint256)
+        #   handler: handleReferralPayout
+        # - event: Refund(indexed address,indexed uint256,uint256,uint256)
+        #   handler: handleRefund
+        # - event: RefundTopUp(uint256)
+        #   handler: handleRefundTopUp
+        # - event: RewardPointsSlashed(indexed address,indexed address,uint256)
+        #   handler: handleRewardPointsSlashed
+        # - event: RewardWithdraw(indexed address,uint256)
+        #   handler: handleRewardWithdraw
+        # - event: RewardsAllocated(uint256)
+        #   handler: handleRewardsAllocated
+        # - event: SupplyCapChange(uint256)
+        #   handler: handleSupplyCapChange
+        # - event: Transfer(indexed address,indexed address,indexed uint256)
+        #   handler: handleTransfer
+        # - event: TransferRecipientChange(indexed address)
+        #   handler: handleTransferRecipientChange
         - event: Unpaused(address)
           handler: handleUnpaused
         - event: Withdraw(indexed address,uint256)
