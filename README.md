@@ -14,4 +14,14 @@ Resources:
 
 Please support this project by signaling the Published Subgraph here.
 
-The GraphQL endpoint is: https://api.studio.thegraph.com/query/64293/hypersub-subgraph/version/latest
+The Subgraph can be found here: https://thegraph.com/explorer/subgraphs/2DfPMyXx2EJ6zccT85wG8BWvEPzWYEe89HHtjMqNdXrh?v=0&view=Curators&chain=arbitrum-one
+
+## Build
+```
+graph codegen && graph build
+```
+
+## Deploy
+```
+graph deploy --studio hypersub-v1-on-base
+```
